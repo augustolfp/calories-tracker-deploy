@@ -26,6 +26,8 @@ services:
   react_app:
     container_name: react_app
     build: ./calories-tracker-frontend-v2
+    env_file:
+      - ./calories-tracker-frontend-v2/.env
     image: react_app_image
     volumes:
       - build_react:/var/www/html
