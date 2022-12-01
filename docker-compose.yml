@@ -15,7 +15,6 @@ services:
   app:
     container_name: app
     build: ./calories-tracker-backend
-    image: app_image
     ports:
       - 5000:5000
     env_file:
@@ -28,16 +27,14 @@ services:
     build: ./calories-tracker-frontend-v2
     env_file:
       - ./calories-tracker-frontend-v2/.env
-    image: react_app_image
     volumes:
       - build_react:/var/www/html
 
   nginx_app:
     container_name: nginx_app
     build: ./nginx
-    image: nginx_app_image
     ports:
-      - 3001:80
+      - 80:80
     volumes:
       - build_react:/var/www/html
     depends_on:
